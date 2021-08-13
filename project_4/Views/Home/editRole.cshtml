@@ -1,0 +1,192 @@
+﻿@model project_4.Models.User
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+        body {
+            background-color: #428bb2;
+            background: linear-gradient(135deg, #428bb2 0%, rgb(0 0 0) 100%);
+        }
+
+        .outer-div {
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner-div {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 3px;
+            /* border: 1px solid black; */
+            /* border-radius: 10px; */
+            margin: 10% auto;
+            width: 70%;
+            /* background-color: white; */
+        }
+
+            .inner-div h1 {
+                border: 1px solid inherit;
+                border-radius: 10px 10px 0px 0px;
+                height: 100%;
+                font-weight: bold;
+                text-align: left;
+                padding: 20px;
+                color: white;
+                background-color: #286687;
+                font-size: 30px;
+                font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+            }
+
+            .inner-div form {
+                background-color: white;
+                border: 1px solid white;
+                border-radius: 0px 0px 10px 10px;
+            }
+
+        form input {
+            width: 60%;
+            background-color: rgb(221, 221, 221);
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 6px;
+            border: 0.4px solid white;
+            outline: none;
+            color: rgb(101, 21, 133);
+        }
+
+        form div {
+            margin-top: 10px
+        }
+
+        .chx {
+            /*        display:inline;
+    */ width: 25px;
+            background-color: white;
+            margin: 0;
+            padding: 5px;
+            border-radius: 6px;
+            border: 1px solid black;
+            outline: none;
+            color: rgb(101, 21, 133);
+        }
+
+        form button {
+            background-color: #428bb2;
+            color: white;
+            width: 80px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 6px;
+            outline: none;
+            border: 1px solid white;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+            form button:hover {
+                background-color: white;
+                color: #428bb2;
+                border: 1px solid #428bb2;
+            }
+
+        form span {
+            background-color: white;
+            color: #428bb2;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 10px;
+        }
+
+            form span:hover {
+                color: #428bb2;
+            }
+
+        @@media screen and (max-width: 800px) {
+            .inner-div {
+                margin-top: 25%;
+            }
+        }
+</style>
+<h1 style="font-size:60px;">@ViewBag.pass </h1>
+
+<div class="outer-div">
+    <div class="inner-div">
+        <h1>Edit Role</h1>
+        <form method="post">
+            <div>
+                @Html.Label("UserSSN")
+                @Html.TextBoxFor(n => n.SSN, new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.SSN, "", new { @class = "text-danger" })</span>
+            </div>
+            <div>
+                @Html.Label("Username")
+                @Html.TextBoxFor(n => n.UName,  new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.UName, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Email")
+                @Html.TextBoxFor(n => n.Email,  new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.Email, "", new { @class = "text-danger" })</span>
+            </div>
+            <div>
+                @Html.Label("Password")
+                @Html.TextBoxFor(n => n.Password, new { @readonly = "true", type = "password" })
+                <span>   @Html.ValidationMessageFor(n => n.Password, "", new { @class = "alert-danger" }) </span>
+            </div>
+            <div>
+                @Html.Label("Confirm Password")
+                @Html.TextBoxFor(n => n.confirm_Password, new { @readonly = "true", type = "password", @Value = ViewBag.pass })
+                <span>   @Html.ValidationMessageFor(n => n.confirm_Password, "", new { @class = "alert-danger" }) </span>
+            </div>
+
+            <div>
+                @Html.Label("Street")
+                @Html.TextBoxFor(n => n.Street, new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.Street, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("City")
+                @Html.TextBoxFor(n => n.City, new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.City, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Governorate" )
+                @Html.TextBoxFor(n => n.Governorate, new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.Governorate, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Phone")
+                @Html.TextBoxFor(n => n.Phone, new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.Phone, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("BirthDay")
+                @Html.TextBoxFor(n => n.Birth_Day, new { placeholder = "YYYY/MM/DD" , @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.Birth_Day, "", new { @class = "text-danger", placeholder = "YYYY/MM/DD" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Picture")
+                <input style="width:40%;display:inline" type="file" name="img" class="form-control" disabled />
+                <span>@Html.ValidationMessageFor(n => n.UImage, "", new { @class = "text-danger" })</span>
+            </div>
+            <div>
+                @Html.Label("User Role")
+                @Html.TextBoxFor(n => n.userRole)
+                <span>@Html.ValidationMessageFor(n => n.userRole, "", new { @class = "text-danger" })</span>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+

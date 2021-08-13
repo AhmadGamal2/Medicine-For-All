@@ -1,0 +1,266 @@
+﻿@using project_4.Models
+@model List<Drug>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<body>
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="/Content/assets/images/101.jpg" alt="">
+                    <div class="text-content">
+
+                        <h3>Corona</h3>
+
+                        @*<a href="#" class="main-filled-button">GO TO </a>*@
+
+                        @Html.ActionLink("GO TO", "Drugs", "Home", new { Department = "Cold" }, new { @class = "main-stroked-button" })
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="/Content/assets/images/100.jpg" alt="">
+                    <div class="text-content">
+
+                        <h3>Heart</h3>
+                        @*<a href="#" class="main-stroked-button">GO TO</a>*@
+                        @Html.ActionLink("GO TO", "Drugs", "Home", new { Department = "Heart" }, new {@class="main-stroked-button" })
+                        @*<a href="#" class="main-filled-button">Take Action</a>*@
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="/Content/assets/images/102.jpg" alt="">
+                    <div class="text-content">
+                        <h3>Bones</h3>
+
+                        @*<a href="#" class="main-stroked-button">GO TO</a>*@
+                        @Html.ActionLink("GO TO", "Drugs", "Home", new { Department = "Muscles" }, new { @class = "main-stroked-button" })
+
+                        @*<a href="#" class="main-filled-button">Get It Now</a>*@
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+
+
+        </div>
+    </div>
+
+    <br /> <br /> <br />
+
+
+                  <div class="container section3-bg">
+
+
+                      <div class="row">
+
+
+
+                          @foreach (var item in Model)
+                          {
+
+                              <div class="col-sm-12 col-md-6 col-lg-3">
+                                  <div  class="card m-1">
+
+                                      <img src="/Content/assets/images/@item.DImage" alt="" width="100%" style="object-fit:cover" height="150">
+
+                                      <div class="card-body">
+                                          <h5 class="card-title drug_title">
+                                              @item.DName
+                                          </h5>
+                                          <p class="card-text drug_details">
+                                              @item.Drug_Desc
+                                          </p>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          }
+                      </div>
+                      <div>
+                          <button style="margin:20px 40%; width:150px; " class="btn btn-light">@Html.ActionLink("Exchange Now", "allDrugs", "Home", new {style="color:tomato;" })</button>
+                      </div>
+                  </div>
+
+    <br /> <br />
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+
+    <!-- ***** Main Banner Area End ***** -->
+    <!-- ***** About Area Starts ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h3 class="contact_us">About Us</h3>
+                            <h2>We work to connect people to each other for medicines</h2>
+                        </div>
+                        <br /><br />
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="~/Content/assets/images/1.jpg" alt="">
+                                    <h4>Heart</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="/Content/assets/images/2.png" alt="">
+                                    <h4>Drugs</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="/Content/assets/images/3.png" alt="">
+                                    <h4>Bones</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="/Content/assets/images/4.png" alt="">
+                                    <h4>Stomach</h4>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="~/Content/assets/images/5.jpg" alt="">
+                                    <h4>Corona</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="/Content/assets/images/7.png" alt="">
+                                    <h4>Teeth</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="right-text-content">
+                        <p style="color:firebrick ;font-family:'Baskerville Old Face';font-size:20px">
+                            On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment,<br /><br /> so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best,<br /><br /> Every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+    <!-- ***** Contact Us Area Starts ***** -->
+    <section class="section" id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6 class="contact_us">Contact Us</h6>
+                            <h2>Feel free to keep in touch with us!</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="get">
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br /><br /><br /><br /><br />
+                                    <img src="/Content/assets/images/contact-info-01.png" alt=""> <span class="contact_num"> 010-164-22889 </span>
+                                </div>
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br /><br /><br /><br /><br />
+                                    <img src="/Content/assets/images/contact-info-01.png" alt=""> <span class="contact_num"> 010-646-06100 </span>
+                                </div>
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br />
+                                    <a class="contact_emails" href="mailto:ahmedmegahed408@gmail.com">
+                                        <img src="/Content/assets/images/contact-info-02.png" alt=""> ahmedmegahed408@gmail.com
+                                    </a>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br />
+                                    <a class="contact_emails" href="mailto:ameerafares2025@gmail.com">
+                                        <img src="/Content/assets/images/contact-info-02.png" alt=""> ameerafares2025@gmail.com
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br /> <br />
+                                    <a class="contact_emails" href="mailto:magednabilarafa@gmail.com">
+                                        <img src="/Content/assets/images/contact-info-02.png" alt=""> magednabilarafa@gmail.com
+                                    </a>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br /> <br />
+                                    <a class="contact_emails" href="mailto:ahmadgamal1494@gmail.com">
+                                        <img src="/Content/assets/images/contact-info-02.png" alt=""> ahmadgamal1494@gmail.com
+                                    </a>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-12">
+                                    <br /> <br />
+                                    <a class="contact_emails" href="mailto:asmaamoheey@gmail.com">
+                                        <img src="/Content/assets/images/contact-info-02.png" alt=""> asmaamoheey@gmail.com
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <br /> <br />
+                                    <a class="contact_emails" href="mailto:nm1246378@gmail.com">
+                                        <img src="/Content/assets/images/contact-info-02.png" alt=""> nm1246378@gmail.com
+                                    </a>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    @*@foreach (var item in Model)
+        {
+            @item.DName
+        }*@
+</body>

@@ -1,0 +1,153 @@
+﻿@model IEnumerable<project_4.Models.Drug>
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    h2 {
+        margin-top: 100px;
+        margin-bottom: 20px;
+        font-size: 40px;
+        font-weight: bold;
+        width: 100%;
+        background-color: darkslateblue;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .addM {
+        margin: 20px 12%;
+    }
+
+        .addM a {
+            width: 300px;
+            height: 100%;
+            font-size: 40px;
+            font-weight: bold;
+            font-style: italic;
+            color: #428bb2 !important;
+        }
+
+            .addM a:hover {
+                color: white !important;
+                background-color: #428bb2;
+            }
+
+    .myContent {
+        margin: 30px auto;
+    }
+
+    .card {
+        height: 500px;
+    }
+
+        .card img {
+            height: 300px;
+        }
+
+        .card h5 {
+            font-size: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #428bb2;
+        }
+
+        .card p {
+            font-family: Arial;
+            font-size: small;
+            font-size: 15px;
+        }
+
+    .myAvailable span {
+        color: green;
+        background-color: #e3e3e3;
+        padding: 5px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+
+    .myReserved span {
+        color: red;
+        background-color: #e3e3e3;
+        padding: 5px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+
+    .myApprove span {
+        color: orange;
+        background-color: #e3e3e3;
+        padding: 5px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+</style>
+
+<h2>@ViewBag.dept Medicines</h2>
+
+<div class="addM">
+    @Html.ActionLink("Add Medicine", "addDrug", "Home", new { @class = "btn btn-outline-info" })
+</div>
+
+@if (Model.Count() == 0)
+
+
+{
+    <h2>Match No Names</h2>
+}
+else
+{
+
+
+    <div class="container section3-bg">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card m-1">
+                        <img src="~/attach/@item.DImage" alt="" width="100%" style="object-fit:cover" height="150">
+                        <div class="card-body">
+                            <h5 class="card-title drug_title">@item.DName</h5>
+                            <p class="card-text drug_details">Department: @item.Department</p>
+                            @if (item.Dstate == "Available")
+                            {
+                                <p class="myAvailable card-text drug_details">State:<span> @item.Dstate </span></p>
+                            }
+                            else if (item.Dstate == "Reserved")
+                            {
+                                <p class="myReserved card-text drug_details">State:<span> @item.Dstate </span></p>
+
+                            }
+                            else
+                            {
+                                <p class="myApprove card-text drug_details">State:<span> @item.Dstate </span></p>
+
+                            }
+                            @Html.ActionLink("Edit", "editDrug", "Home", new { id = item.DID }, new { @class = "btn btn-outline-primary m-2" })
+                            @Html.ActionLink("Details", "detailsDrug", "Home", new { id = item.DID }, new { @class = "btn btn-outline-primary m-2" })
+
+
+                        </div>
+                        @if (item.Dstate == "Reserved" || item.Dstate == "Approved")
+                        {
+                            @Html.ActionLink("Get", "Exchange2", "Home", new { id = item.DID }, new { @class = "btn btn-outline-primary m-2", @hidden = "true" })
+
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Get", "Exchange2", "Home", new { id = item.DID }, new { @class = "btn btn-outline-primary m-2" })
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+}
+
+<div class="addM">
+    @Html.ActionLink("Add Medicine", "addDrug", "Home", new { @class = "btn btn-outline-info" })
+</div>

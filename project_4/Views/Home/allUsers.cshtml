@@ -1,0 +1,83 @@
+﻿@using project_4.Models
+@model List<User>
+
+@{
+    ViewBag.Title = "allUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .myheader {
+        margin: 100px 20%;
+    }
+
+        .myheader h2 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #428bb2;
+            border-left: 10px solid #428bb2;
+            padding: 10px
+        }
+
+    .card {
+        height: 600px
+    }
+
+        .card img {
+            height: 300px;
+        }
+
+        .card h5 {
+            font-size: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #428bb2;
+        }
+
+        .card p {
+            font-family: Arial;
+            font-size: small;
+            font-size: 15px;
+        }
+</style>
+
+
+<div class="myheader">
+    <h2>All Users</h2>
+</div><div class="container section3-bg">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-1">
+                    @if (item.UImage == null)
+                    {
+                        <img src="~/attach/no-image.jpg" alt="" width="100%" style="object-fit:cover" height="150">
+
+                    }
+                    else
+                    {
+                        <img src="~/attach/@item.UImage" alt="" width="100%" style="object-fit:cover" height="150">
+
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title drug_title">@item.UName</h5>
+                        @if (item.userRole == null)
+                        {
+                            <p class="card-text drug_details">User Role: Guest</p>
+
+                        }
+                        else
+                        {
+                            <p class="card-text drug_details">User Role:@item.userRole</p>
+
+                        }
+                        @Html.ActionLink("Delete User", "deleteUser", "Home", new { ssn = item.SSN }, new { @class = "btn btn-outline-danger m-2", onClick = "return confirm('are you sure to delete this user?')" })
+                        @Html.ActionLink("Details", "detailsUser", "Home", new { ssn = item.SSN }, new { @class = "btn btn-outline-primary m-2" })
+                        @Html.ActionLink("Edit Role", "editRole", "Home", new { ssn = item.SSN }, new { @class = "btn btn-outline-primary m-2" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+  
+</div>
+

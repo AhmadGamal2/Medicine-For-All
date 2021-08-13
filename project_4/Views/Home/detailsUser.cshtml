@@ -1,0 +1,167 @@
+﻿@model project_4.Models.User
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+        body {
+            background-color: #1674a6;
+            background: linear-gradient(135deg, #1674a6 0%, rgb(0 0 0) 100%);
+        }
+
+        .parent {
+            padding: 100px;
+        }
+
+        .header {
+            border-left: 30px solid #b0a7a7;
+            padding: 20px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+            .header img {
+                border: 4px double white;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .header .hd span {
+                font-size: 50px;
+                font-weight: bold;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                color: #f1a873;
+                margin-left: 40px;
+            }
+
+        .line {
+            margin-top: 20px;
+            /*        width: 20%;
+    */ border: 4px solid #b0a7a7;
+            background-color: #b0a7a7;
+        }
+
+        p {
+            font-size: 15px;
+            color: white;
+            margin: 10px;
+        }
+
+        .headercontent span {
+            font-size: 20px;
+            font-style: italic;
+            color: #f1a873;
+            font-weight: bold;
+        }
+
+        .drugContent {
+            margin: 20px;
+        }
+
+            .drugContent h2 {
+                padding: 10px;
+                border-left: 10px solid #b0a7a7;
+                font-size: 30px;
+                font-weight: bold;
+                color: white;
+            }
+
+        .drugs {
+            margin: 20px
+        }
+
+        button {
+            margin: auto 44%;
+            width: 160px;
+        }
+
+        .card {
+            margin: 5px;
+            border: 3px solid #f1a873;
+        }
+
+        .card-body h2 {
+            padding: 10px;
+            border-left: none;
+            font-size: 30px;
+            font-weight: bold;
+            color: #1674a6;
+        }
+
+        .card a {
+            margin: 20px auto;
+            width: 100px;
+        }
+
+
+        @@media screen and (max-width:1000px) and (min-width: 760px) {
+            .parent {
+                padding: 100px;
+                margin-top: 100px;
+            }
+        }
+</style>
+
+<div class="parent">
+    <div class="header">
+        <div class="hd">
+            @*@if (Model.UImage != null)
+            {
+                <td><img src="~/attach/@Model.UImage" width="200" height="200" /></td>
+
+            }
+            else
+            {
+                <td><img src="~/attach/no-image.jpg" width="200" height="200" /></td>
+
+            }*@
+            <span>@Model.UName</span>
+        </div>
+        <div class="headercontent">
+            <p>Email: <span>@Model.Email</span></p>
+
+            <p>Address: <span>@Model.Street, @Model.City, @Model.Governorate</span></p>
+            <p>Phone: <span>@Model.Phone</span></p>
+
+            @if (Model.Age != null)
+            {
+                <p>Age: <span>@Model.Age</span></p>
+
+            }
+            else
+            {
+                <p>Age: <span>Undefined</span></p>
+
+            }
+            <p>User Role:<span>@Model.userRole</span></p>
+        </div>
+    </div>
+    
+
+
+<!--<h2>@Model.UName</h2>
+<table width="100%">
+    <tr>
+        <td><span style="color:tomato">Phone:</span> @Model.Phone<br /><span style="color:tomato">Age:</span> @Model.Age</td>-->
+@*@if (Model.UImage != null)
+        {
+            <td><img src="~/attach/@Model.UImage" width="200" height="200" /></td>
+
+        }
+        else
+        {
+            <td><img src="~/attach/no-image.jpg" width="200" height="200" /></td>
+
+        }
+        <td></td>
+    </tr>
+    <tr>
+        <td><span style="color:tomato">Address:</span> @Model.Street, @Model.City, @Model.Governorate<br /><span style="color:tomato">E-mail:</span> @Model.Email</td>
+    </tr>*@
+<!--<tr>
+        @ViewBag.course
+    </tr>
+</table>-->

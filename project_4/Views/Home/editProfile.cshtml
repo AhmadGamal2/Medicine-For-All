@@ -1,0 +1,201 @@
+﻿@model project_4.Models.User
+@{
+    ViewBag.Title = "editProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #428bb2;
+        background: linear-gradient(135deg, #428bb2 0%, rgb(0 0 0) 100%);
+    }
+
+    .outer-div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .inner-div {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 3px;
+        /* border: 1px solid black; */
+        /* border-radius: 10px; */
+        margin: 10% auto;
+        width: 70%;
+        /* background-color: white; */
+    }
+
+        .inner-div h2 {
+            border: 1px solid inherit;
+            border-radius: 10px 10px 0px 0px;
+            height: 100%;
+            font-weight: bold;
+            text-align: left;
+            padding: 20px;
+            color: white;
+            background-color: #286687;
+            font-size: 30px;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        }
+
+        .inner-div form {
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+    form input {
+        width: 55%;
+        background-color: rgb(221, 221, 221);
+        margin: 20px auto;
+        padding: 15px;
+        border-radius: 6px;
+        border: 0.4px solid white;
+        outline: none;
+        color: #428bb2;
+    }
+
+    form div {
+        margin-top: 10px
+    }
+
+    .chx {
+        /*        display:inline;
+    */ width: 25px;
+        background-color: white;
+        margin: 0;
+        padding: 5px;
+        border-radius: 6px;
+        border: 1px solid black;
+        outline: none;
+        color: #428bb2;
+    }
+
+    form label {
+        font-weight: bold;
+        margin: 10px;
+        font-size: 10px;
+        color: #428bb2;
+        width: 60px;
+    }
+
+    form button {
+        background-color: #428bb2;
+        color: white;
+        width: 80px;
+        height: 40px;
+        padding: 5px;
+        border-radius: 6px;
+        outline: none;
+        border: 1px solid white;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+        form button:hover {
+            background-color: white;
+            color: #428bb2;
+            border: 1px solid #428bb2;
+        }
+
+    form span {
+        background-color: white;
+        color: red;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+
+        form span:hover {
+            color: #428bb2;
+        }
+
+    @@media screen and (max-width: 800px) {
+        .inner-div {
+            margin-top: 25%;
+        }
+    }
+</style>
+
+<div class="outer-div">
+    <div class="inner-div">
+        <h2>Edit Profile</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                @Html.Label("UserSSN")
+                @Html.TextBoxFor(n => n.SSN, new { @readonly = "true" })
+                <span>@Html.ValidationMessageFor(n => n.SSN, "", new { @class = "text-danger" })</span>
+            </div>
+            <div>
+                @Html.Label("Username")
+                @Html.TextBoxFor(n => n.UName)
+                <span>@Html.ValidationMessageFor(n => n.UName, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Email")
+                @Html.TextBoxFor(n => n.Email)
+                <span>@Html.ValidationMessageFor(n => n.Email, "", new { @class = "text-danger" })</span>
+            </div>
+            <div>
+                @Html.Label("Password")
+                @Html.TextBoxFor(n => n.Password, new { type = "password" })
+                <span>   @Html.ValidationMessageFor(n => n.Password, "", new { @class = "alert-danger" }) </span>
+            </div>
+            <div>
+                @Html.Label("Confirm Password")
+                @Html.TextBoxFor(n => n.confirm_Password, new { type = "password", @Value= ViewBag.pass })
+                <span>   @Html.ValidationMessageFor(n => n.confirm_Password, "", new { @class = "alert-danger" }) </span>
+            </div>
+
+            <div>
+                @Html.Label("National ID")
+                @Html.TextBoxFor(n => n.SSN)
+                <span>@Html.ValidationMessageFor(n => n.SSN, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Street")
+                @Html.TextBoxFor(n => n.Street)
+                <span>@Html.ValidationMessageFor(n => n.Street, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("City")
+                @Html.TextBoxFor(n => n.City)
+                <span>@Html.ValidationMessageFor(n => n.City, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Governorate")
+                @Html.TextBoxFor(n => n.Governorate)
+                <span>@Html.ValidationMessageFor(n => n.Governorate, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Phone")
+                @Html.TextBoxFor(n => n.Phone)
+                <span>@Html.ValidationMessageFor(n => n.Phone, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <div>
+                @Html.Label("BirthDay")
+                @Html.TextBoxFor(n => n.Birth_Day, new { placeholder = "YYYY/MM/DD" })
+                <span>@Html.ValidationMessageFor(n => n.Birth_Day, "", new { @class = "text-danger", placeholder = "YYYY/MM/DD" })</span>
+            </div>
+
+            <div>
+                @Html.Label("Picture")
+                <input style="width:40%;display:inline" type="file" name="img" class="form-control" value="~/attach/@ViewBag.Path" />
+                <span>@Html.ValidationMessageFor(n => n.UImage, "", new { @class = "text-danger" })</span>
+            </div>
+
+            <button type="submit">Update</button>
+
+            <div style="color:blueviolet; margin-bottom:10px">@ViewBag.status</div>
+
+        </form>
+    </div>
+</div>
+

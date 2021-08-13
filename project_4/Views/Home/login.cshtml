@@ -1,0 +1,139 @@
+﻿@model project_4.Models.User
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-color: #428bb2;
+        background: linear-gradient(135deg, #428bb2 0%, rgb(0 0 0) 100%);
+    }
+
+    .outer-div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .inner-div {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 3px;
+        /* border: 1px solid black; */
+        /* border-radius: 10px; */
+        margin: 10% auto;
+        width: 70%;
+        /* background-color: white; */
+    }
+
+        .inner-div h1 {
+            border: 1px solid inherit;
+            border-radius: 10px 10px 0px 0px;
+            height: 100%;
+            font-weight: bold;
+            text-align: left;
+            padding: 20px;
+            color: white;
+            background-color: #286687;
+            font-size: 30px;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        }
+
+        .inner-div form {
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+    form input {
+
+        width: 60%;
+        background-color: rgb(221, 221, 221);
+        margin: 20px auto;
+        padding: 15px;
+        border-radius: 6px;
+        border: 0.4px solid white;
+        outline: none;
+        color: rgb(101, 21, 133);
+    }
+    form div {
+        margin-top:10px
+    }
+    .chx {
+/*        display:inline;
+*/        width: 25px;
+        background-color: white;
+        margin: 0;
+        padding: 5px;
+        border-radius: 6px;
+        border: 1px solid black;
+        outline: none;
+        color: rgb(101, 21, 133);
+    }
+
+    form button {
+        background-color: #428bb2;
+        color: white;
+        width: 80px;
+        height: 40px;
+        padding: 5px;
+        border-radius: 6px;
+        outline: none;
+        border: 1px solid white;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+        form button:hover {
+            background-color: white;
+            color: #428bb2;
+            border: 1px solid #428bb2;
+        }
+
+    form span {
+        background-color: white;
+        color: #428bb2;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+
+        form span:hover {
+            color: #428bb2;
+        }
+
+       @@media screen and (max-width: 800px) {
+        .inner-div{
+            margin-top: 25%;
+                  }
+    }
+</style>
+
+<div class="outer-div">
+    <div class="inner-div">
+        <h1>Login Form</h1>
+        <form method="post">
+
+            <div>
+                @Html.TextBoxFor(n => n.Email, new { placeholder = "Email" })
+                <span>@Html.ValidationMessageFor(n => n.Email, "", new { @class = "text-danger" })</span>
+            </div>
+            <div>
+                @Html.PasswordFor(n => n.Password, new { placeholder = "Password" })
+                <span>   @Html.ValidationMessageFor(n => n.Password, "", new { @class = "alert-danger" }) </span>
+            </div>
+            <button type="submit">Sign in</button>
+            <button class="btn btn-light" style="width:100px; margin-top:15px">@Html.ActionLink("Sign Up", "register", "home", new {style="text-decoration:none" })</button>
+
+            <div>
+                @Html.CheckBox("rememberme", new { @class = "chx" }) Remember Me?
+
+                @*<input class="chx" name="rememberme" type="checkbox" /> Remember Me?*@
+            </div>
+            <div style="color:blueviolet; margin-bottom:10px">@ViewBag.status</div>
+
+        </form>
+    </div>
+</div>
+
+
+

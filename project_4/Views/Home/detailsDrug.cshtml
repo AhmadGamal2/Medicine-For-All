@@ -1,0 +1,159 @@
+﻿@model project_4.Models.Drug
+@{
+    ViewBag.Title = "detailsDrug";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .container-fluid img{
+        object-fit:contain;
+        width:100%;
+        height: 400px;
+    }
+    .container-fluid{
+        margin-top:80px;
+    }
+        .container-fluid h2 {
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            background-color: #274f64;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            margin-top:10px;
+        }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <img src="~/attach/@Html.DisplayFor(m=>m.DImage)" />
+            <h2>
+                @Html.DisplayFor(model => model.DName)
+            </h2>
+            <h4 class="ml-5 mt-5">
+                @Html.DisplayNameFor(model => model.Production_Date)
+            </h4>
+            <p class="ml-5">
+                @Html.DisplayFor(model => model.Production_Date)
+
+            </p>
+            <h4 class="ml-5 mt-5">
+                @Html.DisplayNameFor(model => model.Expiring_Date)
+            </h4>
+            <p class="ml-5">
+                @Html.DisplayFor(model => model.Expiring_Date)
+
+            </p>
+            <h4 class="ml-5 mt-5">
+                @Html.DisplayNameFor(model => model.Department)
+            </h4>
+            <p class="ml-5">
+                @Html.DisplayFor(model => model.Department)
+
+            </p>
+            <h4 class="ml-5 mt-5">
+                @Html.DisplayNameFor(model => model.Type)
+            </h4>
+            <p class="ml-5">
+                @Html.DisplayFor(model => model.Type)
+
+            </p>
+            <h4 class="ml-5 mt-5">
+                @Html.DisplayNameFor(model => model.Price)
+            </h4>
+            <p class="ml-5">
+                @Html.DisplayFor(model => model.Price) LE
+
+            </p>
+
+            <h4 class="ml-5 mt-5">
+                @Html.DisplayNameFor(model => model.Drug_Desc)
+            </h4>
+            <p class="ml-5">
+                @Html.DisplayFor(model => model.Drug_Desc)
+
+            </p>
+            <h4 class="ml-5 mt-5">
+                Status
+            </h4>
+            <p class="ml-5 mb-5">
+                @Html.DisplayFor(model => model.Dstate)
+
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<!--<div>
+    <h4>Drugs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Production_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Production_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Expiring_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Expiring_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Drug_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drug_Desc)
+        </dd>-->
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.DImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DImage)
+        </dd>*@
+
+    <!--</dl>
+</div>-->
